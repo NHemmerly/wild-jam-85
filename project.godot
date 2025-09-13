@@ -14,7 +14,21 @@ config/name="wild-jam-85"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*res://game/autoloads/events.gd"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://entities/": "orange",
+"res://game/": "green",
+"res://utility/": "yellow"
+}
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
