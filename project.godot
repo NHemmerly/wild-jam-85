@@ -24,6 +24,7 @@ folder_colors={
 "res://assets/": "red",
 "res://entities/": "orange",
 "res://game/": "green",
+"res://level/": "blue",
 "res://utility/": "yellow"
 }
 
