@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyllhb64ptgh2"]
+
+[ext_resource type="Script" uid="uid://d12uv0wfdyc8p" path="res://entities/items/leaf_1/leaf_1.gd" id="1_t6wa5"]
+[ext_resource type="Resource" uid="uid://bck7wdiiapulo" path="res://entities/components/leaf_1.tres" id="2_rpy6u"]
+[ext_resource type="Texture2D" uid="uid://dk58kmi2gf3tl" path="res://assets/png/leaf-1.png" id="2_tpyld"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rpy6u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6wa5"]
+
+[node name="Leaf1" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+physics_material_override = SubResource("PhysicsMaterial_rpy6u")
+gravity_scale = 0.75
+freeze_mode = 1
+script = ExtResource("1_t6wa5")
+data = ExtResource("2_rpy6u")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tpyld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t6wa5")
