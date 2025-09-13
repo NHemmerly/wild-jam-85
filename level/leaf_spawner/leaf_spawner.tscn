@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dctqiqgfd2b7l"]
+
+[ext_resource type="Script" uid="uid://bkonk2jynj04p" path="res://level/leaf_spawner/leaf_spawner.gd" id="1_cfcrq"]
+[ext_resource type="PackedScene" uid="uid://dyllhb64ptgh2" path="res://entities/items/leaf_1/leaf_1.tscn" id="2_r736v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fuas"]
+size = Vector2(1128, 26)
+
+[node name="LeafSpawner" type="Area2D" node_paths=PackedStringArray("area", "spawn_timer")]
+position = Vector2(9.99977, -14.0999)
+script = ExtResource("1_cfcrq")
+area = NodePath("CollisionShape2D")
+spawn_timer = NodePath("spawn_timer")
+cooldown = 1.0
+base_leaf = ExtResource("2_r736v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(566, 15)
+shape = SubResource("RectangleShape2D_0fuas")
+
+[node name="spawn_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
