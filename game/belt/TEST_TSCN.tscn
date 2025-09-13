@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc1qk2pqbqc2s"]
+
+[ext_resource type="PackedScene" uid="uid://bmhlecg3u8rri" path="res://game/belt/belt.tscn" id="1_eep1a"]
+[ext_resource type="PackedScene" uid="uid://cauc6t0m8ss4r" path="res://game/belt/test_obj.tscn" id="2_a3yep"]
+
+[node name="TEST_TSCN" type="Node2D"]
+
+[node name="belt" parent="." instance=ExtResource("1_eep1a")]
+position = Vector2(-170, 368)
+rotation = -0.127409
+
+[node name="TEST_OBJ" parent="." instance=ExtResource("2_a3yep")]
+position = Vector2(464, 282)
