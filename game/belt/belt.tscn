@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmhlecg3u8rri"]
+
+[ext_resource type="Script" uid="uid://c7nesrtmlhq6o" path="res://game/belt/belt.gd" id="1_ynivb"]
+[ext_resource type="Texture2D" uid="uid://bguf3vv28wya3" path="res://assets/png/fall-of-goo-1.png" id="2_d6vv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugffs"]
+size = Vector2(925, 20)
+
+[node name="belt" type="Area2D"]
+script = ExtResource("1_ynivb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(452.5, 0)
+shape = SubResource("RectangleShape2D_ugffs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(378.5, -3)
+scale = Vector2(3.36562, 0.122222)
+texture = ExtResource("2_d6vv7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
