@@ -2,5 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dm4h17wurvpq7" path="res://game/player/player.gd" id="1_obar5"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_obar5")
+cam = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
