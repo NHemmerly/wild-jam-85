@@ -14,6 +14,13 @@ func _process(delta: float) -> void:
 	cam.position += CAM_SPEED * cam_direction
 
 func _input(event: InputEvent) -> void:
+	cam_movement()
+	
+func rake_leaves() -> void:
+	if Input.is_action_pressed("click"):
+		var mouse_move_dir = InputEventMouseMotion.relative.normalized()
+		
+func cam_movement() -> void:
 	if Input.is_action_pressed("cam_up"):
 		cam_direction = Vector2.UP
 	if Input.is_action_pressed("cam_down"):

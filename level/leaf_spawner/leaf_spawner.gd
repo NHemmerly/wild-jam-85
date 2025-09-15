@@ -11,6 +11,7 @@ var max_x: float
 var y_spawn: float
 var landing_min_y: float
 var landing_max_y: float
+const LANDING_MARGIN: float = 20
 
 var rng = RandomNumberGenerator.new()
 
@@ -19,8 +20,8 @@ func _ready() -> void:
 	landing_area_rect = tile_map.get_used_rect()
 	var origin = tile_map.map_to_local(landing_area_rect.position)
 	var end = tile_map.map_to_local(landing_area_rect.end)
-	landing_min_y = origin.y
-	landing_max_y = end.y
+	landing_min_y = origin.y + LANDING_MARGIN
+	landing_max_y = end.y - LANDING_MARGIN * 2
 	min_x = position.x
 	max_x = position.x + (area.shape.get_rect().size.x)
 	y_spawn = area.shape.get_rect().position.y

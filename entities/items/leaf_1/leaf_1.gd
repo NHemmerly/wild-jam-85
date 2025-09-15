@@ -3,10 +3,11 @@ extends RigidBody2D
 
 @export var data: LeafRef
 @export var sprite: Sprite2D
+@export var collisionShape: CollisionShape2D
 @export var landing_y: float
 
 func _ready() -> void:
-	sprite.texture = data.tex
+	pass
 	
 func _process(delta: float) -> void:
 	if position.y >= landing_y:
