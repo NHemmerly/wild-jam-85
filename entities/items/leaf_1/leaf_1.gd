@@ -3,14 +3,21 @@ extends RigidBody2D
 
 @export var data: LeafRef
 @export var sprite: Sprite2D
+@export var collisionShape: CollisionShape2D
 @export var landing_y: float
+var state: LeafState
 
 func _ready() -> void:
-	sprite.texture = data.tex
+	pass
 	
 func _process(delta: float) -> void:
-	if position.y >= landing_y:
-		gravity_scale = 0.0
-		freeze = true
-		collision_layer = 2
-		collision_mask = 2
+	check_state()
+	
+func check_state() -> void:
+	if !state:
+		state = FallingState.new()
+		state.enter(self)
+	var new_state = state.update()
+	if new_state != null:
+		state = new_state
+		state.enter(self)

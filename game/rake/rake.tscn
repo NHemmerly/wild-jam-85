@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkkrj73nvobsy"]
+
+[ext_resource type="Texture2D" uid="uid://03e8ef6wpbrt" path="res://assets/png/rake.png" id="1_3j00n"]
+[ext_resource type="Script" uid="uid://c4kup73eri2wl" path="res://game/rake/rake.gd" id="1_e3ryj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3j00n"]
+radius = 70.0071
+
+[node name="Rake" type="Node2D" node_paths=PackedStringArray("rake_area")]
+script = ExtResource("1_e3ryj")
+rake_area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_3j00n")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3j00n")
