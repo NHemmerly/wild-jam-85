@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://db46kos83ixhq"]
+
+[ext_resource type="Script" uid="uid://j1w86rjk0gn8" path="res://goo.gd" id="1_ypi1f"]
+[ext_resource type="Texture2D" uid="uid://dk58kmi2gf3tl" path="res://assets/png/leaf-1.png" id="2_8hf4u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7q2t"]
+radius = 100.51356
+height = 447.42416
+
+[node name="goo" type="Area2D"]
+script = ExtResource("1_ypi1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 2.195624
+shape = SubResource("CapsuleShape2D_b7q2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(26.437502, 19.777512)
+texture = ExtResource("2_8hf4u")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
