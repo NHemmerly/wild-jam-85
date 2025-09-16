@@ -2,16 +2,15 @@ extends Area2D
 var speed = 300
 var conveying = false
 @onready var direction = Vector2.from_angle(rotation)
-@onready var leaf_body = $"../TEST_OBJ"
+@onready var leaf_body 
 
 func _ready() -> void:
 	
 	print(direction)
 
-func _on_body_entered(leaf_body) -> void:
+func _on_body_entered(body: RigidBody2D) -> void:
 	conveying = true
-	#body = leaf_bod
-	#leaf_body.picked = false
+	leaf_body = body
 	print("enter")
 	
 #
