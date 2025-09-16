@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_xvto7")
-id = 0
+id = 2
 tex = ExtResource("2_pyvw2")
 metadata/_custom_type_script = "uid://cygj7nwknkega"

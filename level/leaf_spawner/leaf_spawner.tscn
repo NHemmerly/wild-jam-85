@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dctqiqgfd2b7l"]
+[gd_scene load_steps=6 format=3 uid="uid://dctqiqgfd2b7l"]
 
 [ext_resource type="Script" uid="uid://bkonk2jynj04p" path="res://level/leaf_spawner/leaf_spawner.gd" id="1_cfcrq"]
 [ext_resource type="PackedScene" uid="uid://dyllhb64ptgh2" path="res://entities/items/leaf_1/leaf_1.tscn" id="2_r736v"]
+[ext_resource type="PackedScene" uid="uid://dgngr8ik2shbc" path="res://entities/items/leaf_2/leaf_2.tscn" id="3_st4a1"]
+[ext_resource type="PackedScene" uid="uid://bmtpqvxmv7h4a" path="res://entities/items/leaf_3/leaf_3.tscn" id="4_83lal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fuas"]
 size = Vector2(1128, 26)
@@ -12,7 +14,7 @@ script = ExtResource("1_cfcrq")
 area = NodePath("CollisionShape2D")
 spawn_timer = NodePath("spawn_timer")
 cooldown = 1.0
-base_leaf = ExtResource("2_r736v")
+base_leaves = Array[PackedScene]([ExtResource("2_r736v"), ExtResource("3_st4a1"), ExtResource("4_83lal")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(566, 15)

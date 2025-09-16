@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgngr8ik2shbc"]
+
+[ext_resource type="PackedScene" uid="uid://dyllhb64ptgh2" path="res://entities/items/leaf_1/leaf_1.tscn" id="1_67jtj"]
+
+[node name="leaf_2" instance=ExtResource("1_67jtj")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(96, 0, 32, 32)

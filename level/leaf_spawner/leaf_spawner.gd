@@ -3,7 +3,7 @@ extends Area2D
 @export var area: CollisionShape2D
 @export var spawn_timer: Timer
 @export var cooldown: float
-@export var base_leaf: PackedScene
+@export var base_leaves: Array[PackedScene]
 @export var tile_map: TileMapLayer
 var landing_area_rect: Rect2i
 var min_x: float
@@ -35,10 +35,14 @@ func spawn_rand_leaf() -> void:
 	var rand_x = rng.randf_range(min_x, max_x)
 	var rand_land = rng.randf_range(landing_min_y, landing_max_y)
 	var current_scene = get_tree().current_scene
-	var new_leaf = base_leaf.instantiate()
+	var new_leaf = rand_leaf_type().instantiate()
 	current_scene.add_child(new_leaf)
 	new_leaf.landing_y = rand_land
 	new_leaf.position = Vector2(rand_x, y_spawn)
+	
+func rand_leaf_type() -> PackedScene:
+	var rand_leaf_id = rng.randi_range(0, len(base_leaves) - 1)
+	return base_leaves[rand_leaf_id]
 	
 func _on_spawn_timer_timeout() -> void:
 	spawn_rand_leaf()

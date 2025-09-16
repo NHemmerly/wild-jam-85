@@ -12,7 +12,6 @@ rotation = -0.127409
 [node name="belt2" parent="." instance=ExtResource("1_eep1a")]
 position = Vector2(758, 289)
 rotation = -1.63099
-scale = Vector2(1, 1)
 
 [node name="TEST_OBJ" parent="." instance=ExtResource("2_a3yep")]
 position = Vector2(25, 338)

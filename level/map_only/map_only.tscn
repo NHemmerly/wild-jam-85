@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://vhf6lhoqr3jy"]
+[gd_scene load_steps=9 format=4 uid="uid://vhf6lhoqr3jy"]
 
 [ext_resource type="Texture2D" uid="uid://dymipmy2heixw" path="res://assets/png/tilesheet-1.png" id="2_ns6pg"]
 [ext_resource type="PackedScene" uid="uid://dctqiqgfd2b7l" path="res://level/leaf_spawner/leaf_spawner.tscn" id="3_iswir"]
@@ -26,6 +26,9 @@ custom_data_layer_0/name = "item_surface"
 custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_iswir")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iswir"]
+friction = 20.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ufh38"]
 texture = ExtResource("2_ns6pg")
 0:0/0 = 0
@@ -43,6 +46,7 @@ texture = ExtResource("2_ns6pg")
 [sub_resource type="TileSet" id="TileSet_b45g7"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_iswir")
 sources/0 = SubResource("TileSetAtlasSource_ufh38")
 
 [node name="MapOnly" type="Node2D"]

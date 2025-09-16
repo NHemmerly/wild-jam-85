@@ -5,7 +5,7 @@ extends Node
 func update() -> State:
 	return
 	
-func enter(owner) -> void:
+func enter(parent) -> void:
 	pass
 	
 func exit() -> void:

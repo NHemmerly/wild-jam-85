@@ -1,6 +1,7 @@
 class_name Player
 extends Node2D
 
+@export var rake: Rake
 const CAM_SPEED: float = 25
 @export var cam: Camera2D
 var cam_direction: Vector2 = Vector2.ZERO
@@ -12,13 +13,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	cam.position += CAM_SPEED * cam_direction
+	rake.position = get_local_mouse_position()
 
 func _input(event: InputEvent) -> void:
 	cam_movement()
+	rake_leaves(event)
 	
-func rake_leaves() -> void:
-	if Input.is_action_pressed("click"):
-		var mouse_move_dir = InputEventMouseMotion.relative.normalized()
+func rake_leaves(event) -> void:
+	if Input.is_action_pressed("click") and event is InputEventMouseMotion:
+		var mouse_move_dir = event.relative.normalized()
+		rake.move_leaves(mouse_move_dir)
 		
 func cam_movement() -> void:
 	if Input.is_action_pressed("cam_up"):
