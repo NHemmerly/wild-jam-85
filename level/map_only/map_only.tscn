@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://vhf6lhoqr3jy"]
+
+[gd_scene load_steps=11 format=4 uid="uid://vhf6lhoqr3jy"]
+
 
 [ext_resource type="Texture2D" uid="uid://dymipmy2heixw" path="res://assets/png/tilesheet-1.png" id="2_ns6pg"]
 [ext_resource type="PackedScene" uid="uid://dctqiqgfd2b7l" path="res://level/leaf_spawner/leaf_spawner.tscn" id="3_iswir"]
 [ext_resource type="PackedScene" uid="uid://clp1ofdixv4m3" path="res://game/player/player.tscn" id="3_ufh38"]
+[ext_resource type="Script" uid="uid://cbpab46sm3jxw" path="res://level/map_only/slime_count.gd" id="4_ufh38"]
+[ext_resource type="PackedScene" uid="uid://db46kos83ixhq" path="res://entities/goo/goo.tscn" id="5_b45g7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iswir"]
 texture = ExtResource("2_ns6pg")
@@ -64,3 +68,12 @@ tile_set = SubResource("TileSet_b45g7")
 
 [node name="Player" parent="." instance=ExtResource("3_ufh38")]
 position = Vector2(578, 325)
+[node name="slimeCount" type="Label" parent="."]
+offset_right = 217.0
+offset_bottom = 133.0
+script = ExtResource("4_ufh38")
+
+[node name="goo" parent="." instance=ExtResource("5_b45g7")]
+position = Vector2(666, 183)
+
+[connection signal="body_entered" from="goo" to="goo" method="_on_body_entered"]
