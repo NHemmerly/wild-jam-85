@@ -71,6 +71,6 @@ offset_right = 217.0
 offset_bottom = 133.0
 
 [node name="goo" parent="." instance=ExtResource("5_b45g7")]
-position = Vector2(666, 183)
+position = Vector2(650, 579)
 
 [connection signal="body_entered" from="goo" to="goo" method="_on_body_entered"]

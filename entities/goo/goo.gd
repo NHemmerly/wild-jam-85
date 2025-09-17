@@ -8,10 +8,10 @@ var points: int
 signal goo_consume(new_points: int)
 
 func _ready() -> void:
-	Events.connect("goo_consume", Events._on_goo_consume)
+	connect("goo_consume", Events._on_goo_consume)
 	
 func increase_points(leaf: Leaf) -> void:
-		points += leaf.id + 1
+		points += leaf.data.id + 1
 		goo_consume.emit(points)
 
 func _on_body_entered(body: Node2D) -> void:
