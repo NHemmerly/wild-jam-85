@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Events="*res://game/autoloads/events.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={

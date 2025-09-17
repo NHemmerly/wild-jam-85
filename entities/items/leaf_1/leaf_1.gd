@@ -21,3 +21,7 @@ func check_state() -> void:
 	if new_state != null:
 		state = new_state
 		state.enter(self)
+
+# What kind of surface is the leaf on? Should it start falling again?		
+func get_surface_type() -> bool:
+	return false
