@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmtpqvxmv7h4a"]
+[gd_scene load_steps=4 format=3 uid="uid://bmtpqvxmv7h4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyllhb64ptgh2" path="res://entities/items/leaf_1/leaf_1.tscn" id="1_j4b63"]
+[ext_resource type="Script" uid="uid://cygj7nwknkega" path="res://entities/components/leaf_ref.gd" id="2_dnaeh"]
+
+[sub_resource type="Resource" id="Resource_v18v7"]
+script = ExtResource("2_dnaeh")
+id = 2
+metadata/_custom_type_script = "uid://cygj7nwknkega"
 
 [node name="Leaf3" instance=ExtResource("1_j4b63")]
+data = SubResource("Resource_v18v7")
 
 [node name="Sprite2D" parent="." index="0"]
 region_rect = Rect2(0, 0, 32, 32)
