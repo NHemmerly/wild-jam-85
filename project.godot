@@ -20,7 +20,7 @@ Events="*res://game/autoloads/events.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [file_customization]
 

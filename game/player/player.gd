@@ -21,8 +21,12 @@ func _input(event: InputEvent) -> void:
 	
 func rake_leaves(event) -> void:
 	if Input.is_action_pressed("click") and event is InputEventMouseMotion:
+		rake.visible = true
 		var mouse_move_dir = event.relative.normalized()
 		rake.move_leaves(mouse_move_dir)
+	if Input.is_action_just_released("click"):
+		rake.visible = false
+		
 		
 func cam_movement() -> void:
 	if Input.is_action_pressed("cam_up"):
