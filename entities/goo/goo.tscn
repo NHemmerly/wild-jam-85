@@ -1,24 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://db46kos83ixhq"]
+[gd_scene load_steps=7 format=3 uid="uid://db46kos83ixhq"]
 
 [ext_resource type="Script" uid="uid://j1w86rjk0gn8" path="res://entities/goo/goo.gd" id="1_ypi1f"]
-[ext_resource type="Texture2D" uid="uid://dk58kmi2gf3tl" path="res://assets/png/leaf-1.png" id="2_8hf4u"]
+[ext_resource type="Texture2D" uid="uid://dytluttwt67us" path="res://assets/png/goo_wad.png" id="2_ypi1f"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7q2t"]
-radius = 100.514
-height = 447.424
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hf4u"]
+radius = 128.204
+height = 458.273
 
-[node name="goo" type="Area2D"]
+[sub_resource type="Animation" id="Animation_ypi1f"]
+resource_name = "eat"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_8hf4u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7q2t"]
+_data = {
+&"RESET": SubResource("Animation_8hf4u"),
+&"eat": SubResource("Animation_ypi1f")
+}
+
+[node name="goo" type="Area2D" node_paths=PackedStringArray("sprite", "anim")]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ypi1f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 2.19562
-scale = Vector2(0.218402, 0.218402)
-shape = SubResource("CapsuleShape2D_b7q2t")
+sprite = NodePath("Sprite2D")
+anim = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5.774, 4.31944)
-texture = ExtResource("2_8hf4u")
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(3.762, 2.8143)
+texture = ExtResource("2_ypi1f")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+rotation = 4.71239
+scale = Vector2(0.218402, 0.218402)
+shape = SubResource("CapsuleShape2D_8hf4u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b7q2t")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

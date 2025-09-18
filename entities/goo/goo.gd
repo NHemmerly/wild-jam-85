@@ -1,9 +1,14 @@
 class_name Goo
 extends Area2D
 
+@export var sprite: Sprite2D
+@export var anim: AnimationPlayer
+
 # Basically amount of slime points gained
 var points: int
 var total_scale: float = 1.00
+
+const GROWTH_RATE: float = 1000.0
 # Changed slime_count script to a signal that interacts with Events autoload
 signal goo_consume(new_points: int)
 
@@ -17,9 +22,9 @@ func increase_points(leaf: Leaf) -> void:
 	goo_consume.emit(points)
 		
 func grow(amount: int) -> void:
-	total_scale += float(amount/100.0)
+	total_scale += float(amount/GROWTH_RATE)
 	scale = Vector2(total_scale, total_scale)
-	print(total_scale)
+	anim.play("eat")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("leaves"):
