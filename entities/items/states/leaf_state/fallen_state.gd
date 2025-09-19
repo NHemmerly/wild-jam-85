@@ -12,4 +12,6 @@ func enter(new_leaf: Leaf) -> void:
 	leaf.freeze = false
 	
 func update() -> State:
+	if !leaf.is_item_surface():
+		return FallingState.new()
 	return

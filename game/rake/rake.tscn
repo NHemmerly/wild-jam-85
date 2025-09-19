@@ -7,6 +7,7 @@
 radius = 70.0071
 
 [node name="Rake" type="Node2D" node_paths=PackedStringArray("rake_area")]
+z_index = 2
 script = ExtResource("1_e3ryj")
 rake_area = NodePath("Area2D")
 

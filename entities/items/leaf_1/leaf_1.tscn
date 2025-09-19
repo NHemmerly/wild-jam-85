@@ -11,6 +11,7 @@ rough = true
 radius = 4.12311
 
 [node name="Leaf1" type="RigidBody2D" node_paths=PackedStringArray("sprite", "collisionShape") groups=["leaves"]]
+z_index = 2
 physics_material_override = SubResource("PhysicsMaterial_rpy6u")
 gravity_scale = 0.75
 freeze_mode = 1
@@ -27,3 +28,5 @@ region_rect = Rect2(64, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t6wa5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

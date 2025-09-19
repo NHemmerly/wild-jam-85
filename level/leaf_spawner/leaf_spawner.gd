@@ -5,6 +5,7 @@ extends Area2D
 @export var cooldown: float
 @export var base_leaves: Array[PackedScene]
 @export var tile_map: TileMapLayer
+@export var hole_map: TileMapLayer
 var landing_area_rect: Rect2i
 var min_x: float
 var max_x: float
@@ -38,6 +39,7 @@ func spawn_rand_leaf() -> void:
 	var new_leaf = rand_leaf_type().instantiate()
 	current_scene.add_child(new_leaf)
 	new_leaf.landing_y = rand_land
+	new_leaf.hole = hole_map
 	new_leaf.position = Vector2(rand_x, y_spawn)
 	
 func rand_leaf_type() -> PackedScene:
