@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d21o18xaxtv1i"]
+[gd_scene load_steps=7 format=3 uid="uid://d21o18xaxtv1i"]
 
 [ext_resource type="Texture2D" uid="uid://bguf3vv28wya3" path="res://assets/png/fall-of-goo-1.png" id="1_7fh2u"]
 [ext_resource type="Script" uid="uid://cvw7733p64p3i" path="res://game/startup_scenes/main_menu.gd" id="1_k65gq"]
+[ext_resource type="PackedScene" uid="uid://c78tapil644l2" path="res://game/ui/main_menu/main_buttons.tscn" id="3_4n7p1"]
 
 [sub_resource type="Animation" id="Animation_4n7p1"]
 length = 0.001
@@ -39,9 +40,10 @@ _data = {
 &"fade_in": SubResource("Animation_k65gq")
 }
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("animPlayer")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("animPlayer", "art")]
 script = ExtResource("1_k65gq")
 animPlayer = NodePath("AnimationPlayer")
+art = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -56,3 +58,5 @@ texture = ExtResource("1_7fh2u")
 libraries = {
 &"": SubResource("AnimationLibrary_njxd4")
 }
+
+[node name="MainButtons" parent="." instance=ExtResource("3_4n7p1")]

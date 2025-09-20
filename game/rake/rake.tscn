@@ -6,10 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j00n"]
 radius = 70.0071
 
-[node name="Rake" type="Node2D" node_paths=PackedStringArray("rake_area")]
+[node name="Rake" type="Node2D" node_paths=PackedStringArray("rake_area", "sprite")]
 z_index = 2
 script = ExtResource("1_e3ryj")
 rake_area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

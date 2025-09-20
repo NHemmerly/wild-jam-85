@@ -6,9 +6,11 @@ const CAM_SPEED: float = 25
 @export var cam: Camera2D
 var cam_direction: Vector2 = Vector2.ZERO
 
-func _ready() -> void:
-	pass
+var current_tile: Vector2i
+var current_tile_data: TileData
 
+func _ready() -> void:
+	Events.map_tile_data.connect(_hover_pos)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,11 +21,16 @@ func _input(event: InputEvent) -> void:
 	cam_movement()
 	rake_leaves(event)
 	
+func _hover_pos(tile_coords: Vector2i, tile_data: TileData) -> void:
+	current_tile = tile_coords
+	current_tile_data = tile_data
+	
 func rake_leaves(event) -> void:
 	if Input.is_action_pressed("click") and event is InputEventMouseMotion:
 		rake.visible = true
 		var mouse_move_dir = event.relative.normalized()
 		rake.move_leaves(mouse_move_dir)
+		rake.rakes_dont_push(mouse_move_dir)
 	if Input.is_action_just_released("click"):
 		rake.visible = false
 		
