@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hf4u"]
 radius = 128.204
-height = 458.273
+height = 622.705
 
 [sub_resource type="Animation" id="Animation_8hf4u"]
 length = 0.001
@@ -58,6 +58,7 @@ texture = ExtResource("2_ypi1f")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4
 position = Vector2(0, 5)
 rotation = 4.71239
 scale = Vector2(0.218402, 0.218402)

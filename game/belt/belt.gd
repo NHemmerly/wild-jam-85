@@ -1,5 +1,5 @@
 extends Area2D
-var speed = 300
+var speed = 10000
 var conveying = false
 @onready var direction = Vector2.from_angle(rotation)
 @onready var leaf_body 
@@ -19,5 +19,6 @@ func _on_body_exited(body: RigidBody2D) -> void:
 	print("exit")
 
 func _process(delta: float) -> void:
-	if conveying:
-		leaf_body.position += Vector2(speed,speed) * direction * delta
+	for leaf in get_overlapping_bodies():
+		if leaf is Leaf:
+			leaf.apply_force(Vector2(speed,speed) * direction * delta)
