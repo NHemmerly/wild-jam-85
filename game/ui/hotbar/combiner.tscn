@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdynlquvnp2e7"]
+
+[ext_resource type="Texture2D" uid="uid://d1kvlwpg14jnk" path="res://assets/png/movers.png" id="1_v102d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_205r3"]
+atlas = ExtResource("1_v102d")
+region = Rect2(32, 192, 32, 32)
+
+[node name="belt_button" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_205r3")

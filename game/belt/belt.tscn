@@ -1,22 +1,162 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmhlecg3u8rri"]
+[gd_scene load_steps=21 format=3 uid="uid://bmhlecg3u8rri"]
 
 [ext_resource type="Script" uid="uid://c7nesrtmlhq6o" path="res://game/belt/belt.gd" id="1_ynivb"]
-[ext_resource type="Texture2D" uid="uid://bguf3vv28wya3" path="res://assets/png/fall-of-goo-1.png" id="2_d6vv7"]
+[ext_resource type="Texture2D" uid="uid://d1kvlwpg14jnk" path="res://assets/png/movers.png" id="2_7cy7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugffs"]
-size = Vector2(925, 20)
+size = Vector2(33.5, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niok3"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3un5e"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ayry"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwfm6"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cy7p"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ufh8"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iftha"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tulnj"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6trri"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhhxm"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kwve"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trnwq"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbt81"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptr62"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiigd"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7efkp"]
+atlas = ExtResource("2_7cy7p")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ufh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niok3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3un5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ayry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwfm6")
+}],
+"loop": true,
+"name": &"belt_down",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cy7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ufh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iftha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tulnj")
+}],
+"loop": true,
+"name": &"belt_left",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6trri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhhxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kwve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trnwq")
+}],
+"loop": true,
+"name": &"belt_right",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbt81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptr62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiigd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7efkp")
+}],
+"loop": true,
+"name": &"belt_up",
+"speed": 24.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="belt" type="Area2D"]
 script = ExtResource("1_ynivb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(452.5, 0)
+position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_ugffs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(378.5, -3)
-scale = Vector2(3.36562, 0.122222)
-texture = ExtResource("2_d6vv7")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ufh8")
+animation = &"belt_down"
+frame_progress = 0.736524
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

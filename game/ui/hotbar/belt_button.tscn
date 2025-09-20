@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cddcijwjdl620"]
+
+[ext_resource type="Script" uid="uid://q7ub0l4esmtc" path="res://game/ui/hotbar/belt_button.gd" id="1_n2sw1"]
+[ext_resource type="Texture2D" uid="uid://d1kvlwpg14jnk" path="res://assets/png/movers.png" id="1_us1g6"]
+[ext_resource type="PackedScene" uid="uid://bmhlecg3u8rri" path="res://game/belt/belt.tscn" id="2_k4xkt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_205r3"]
+atlas = ExtResource("1_us1g6")
+region = Rect2(32, 0, 32, 32)
+
+[node name="belt_button" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_right = -0.32
+offset_bottom = -0.176003
+script = ExtResource("1_n2sw1")
+item = ExtResource("2_k4xkt")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_205r3")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

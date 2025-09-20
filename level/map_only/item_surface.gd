@@ -7,8 +7,6 @@ signal cell_data(cell_pos: Vector2i, tile_data: TileData)
 const BUILDABLE_HIGHLIGHT: Vector2i = Vector2i(0, 0)
 const UNBUILDABLE_HIGHLIGHT: Vector2i = Vector2i(2, 0)
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect("cell_data", Events._get_mouse_tile)
 	

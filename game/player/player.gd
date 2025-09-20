@@ -12,7 +12,6 @@ var current_tile_data: TileData
 func _ready() -> void:
 	Events.map_tile_data.connect(_hover_pos)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	cam.position += CAM_SPEED * cam_direction
 	rake.position = get_local_mouse_position()
@@ -33,8 +32,7 @@ func rake_leaves(event) -> void:
 		rake.rakes_dont_push(mouse_move_dir)
 	if Input.is_action_just_released("click"):
 		rake.visible = false
-		
-		
+	
 func cam_movement() -> void:
 	if Input.is_action_pressed("cam_up"):
 		cam_direction = Vector2.UP
