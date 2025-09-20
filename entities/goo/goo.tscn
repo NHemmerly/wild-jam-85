@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hf4u"]
 radius = 128.204
-height = 622.705
+height = 1126.36
 
 [sub_resource type="Animation" id="Animation_8hf4u"]
 length = 0.001
@@ -61,7 +61,7 @@ hframes = 2
 z_index = 4
 position = Vector2(0, 5)
 rotation = 4.71239
-scale = Vector2(0.218402, 0.218402)
+scale = Vector2(0.281427, 0.30752)
 shape = SubResource("CapsuleShape2D_8hf4u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

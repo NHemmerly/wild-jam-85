@@ -1,22 +1,22 @@
 class_name Belt
 extends Area2D
 
-enum Direction {UP, DOWN, LEFT, RIGHT}
+enum Direction {UP, RIGHT, DOWN, LEFT}
 
 var speed = 10000
-var conveyor_direction: Direction
+var belt_direction: Direction
 
 @export var leaf: Leaf
 @export var anim: AnimatedSprite2D
 
 func _ready() -> void:
-	set_direction()
+	pass
 	
 func _process(delta: float) -> void:
 	pass
 	
 func set_direction() -> void:
-	match conveyor_direction:
+	match belt_direction:
 		Direction.UP:
 			anim.play("belt_up")
 		Direction.DOWN:

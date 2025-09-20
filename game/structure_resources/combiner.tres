@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="HotbarItem" load_steps=5 format=3 uid="uid://dti34ly6fiux8"]
+
+[ext_resource type="Texture2D" uid="uid://d1kvlwpg14jnk" path="res://assets/png/movers.png" id="1_ov3cv"]
+[ext_resource type="Script" uid="uid://bsene80k4jq3v" path="res://game/structure_resources/hotbar_item_res.gd" id="1_qjjub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7nbi"]
+atlas = ExtResource("1_ov3cv")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vymn"]
+atlas = ExtResource("1_ov3cv")
+region = Rect2(32, 192, 32, 32)
+
+[resource]
+script = ExtResource("1_qjjub")
+price = 20
+thumbnail = SubResource("AtlasTexture_5vymn")
+preview = SubResource("AtlasTexture_g7nbi")
+metadata/_custom_type_script = "uid://bsene80k4jq3v"

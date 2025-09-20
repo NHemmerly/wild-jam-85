@@ -146,8 +146,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="belt" type="Area2D"]
+[node name="belt" type="Area2D" node_paths=PackedStringArray("anim")]
+z_index = 2
 script = ExtResource("1_ynivb")
+anim = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0)

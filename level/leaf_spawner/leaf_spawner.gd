@@ -23,8 +23,8 @@ func _ready() -> void:
 	var end = tile_map.map_to_local(landing_area_rect.end)
 	landing_min_y = origin.y + LANDING_MARGIN
 	landing_max_y = end.y - LANDING_MARGIN * 2
-	min_x = position.x
-	max_x = position.x + (area.shape.get_rect().size.x)
+	min_x = origin.x
+	max_x = end.x
 	y_spawn = area.shape.get_rect().position.y
 	spawn_timer.start(cooldown)
 

@@ -5,7 +5,7 @@ signal cell_data(cell_pos: Vector2i, tile_data: TileData)
 @export var selectors: TileSelector
 
 const BUILDABLE_HIGHLIGHT: Vector2i = Vector2i(0, 0)
-const UNBUILDABLE_HIGHLIGHT: Vector2i = Vector2i(2, 0)
+const UNBUILDABLE_HIGHLIGHT: Vector2i = Vector2i(1, 0)
 
 func _ready() -> void:
 	connect("cell_data", Events._get_mouse_tile)
