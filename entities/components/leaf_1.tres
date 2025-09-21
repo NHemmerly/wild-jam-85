@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="LeafRef" load_steps=3 format=3 uid="uid://bck7wdiiapulo"]
+[gd_resource type="Resource" script_class="LeafRef" load_steps=2 format=3 uid="uid://bck7wdiiapulo"]
 
 [ext_resource type="Script" uid="uid://cygj7nwknkega" path="res://entities/components/leaf_ref.gd" id="1_xvto7"]
-[ext_resource type="Texture2D" uid="uid://trt1y460ih5b" path="res://assets/png/leaves.png" id="2_pyvw2"]
 
 [resource]
 script = ExtResource("1_xvto7")
 id = 0
-tex = ExtResource("2_pyvw2")
+score = 1
 metadata/_custom_type_script = "uid://cygj7nwknkega"

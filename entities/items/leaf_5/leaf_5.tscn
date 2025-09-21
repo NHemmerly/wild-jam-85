@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7ycf4mi5hwy8"]
+
+[ext_resource type="PackedScene" uid="uid://dyllhb64ptgh2" path="res://entities/items/leaf_1/leaf_1.tscn" id="1_78qrv"]
+[ext_resource type="Script" uid="uid://cygj7nwknkega" path="res://entities/components/leaf_ref.gd" id="2_x0khd"]
+
+[sub_resource type="Resource" id="Resource_ubqdm"]
+script = ExtResource("2_x0khd")
+id = 4
+score = 16
+metadata/_custom_type_script = "uid://cygj7nwknkega"
+
+[node name="Leaf5" instance=ExtResource("1_78qrv")]
+data = SubResource("Resource_ubqdm")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(3, 3)
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(3, 3)

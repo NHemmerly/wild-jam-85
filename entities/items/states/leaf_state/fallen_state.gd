@@ -12,4 +12,11 @@ func enter(new_leaf: Leaf) -> void:
 	leaf.freeze = false
 	
 func update() -> State:
+	if !leaf.is_item_surface():
+		exit()
+		return FallingState.new()
 	return
+	
+func exit() -> void:
+	leaf.landing_y = 1000
+	leaf.z_index = 1

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="HotbarItem" load_steps=6 format=3 uid="uid://boqvnay8f3lju"]
+
+[ext_resource type="Script" uid="uid://bsene80k4jq3v" path="res://game/structure_resources/hotbar_item_res.gd" id="1_8obdb"]
+[ext_resource type="Texture2D" uid="uid://d1kvlwpg14jnk" path="res://assets/png/movers.png" id="1_m50q0"]
+[ext_resource type="PackedScene" uid="uid://bmhlecg3u8rri" path="res://game/belt/belt.tscn" id="3_i7n30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfdkr"]
+atlas = ExtResource("1_m50q0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2n0w"]
+atlas = ExtResource("1_m50q0")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_8obdb")
+price = 3
+thumbnail = SubResource("AtlasTexture_d2n0w")
+preview = SubResource("AtlasTexture_jfdkr")
+structure = ExtResource("3_i7n30")
+direction = 0
+metadata/_custom_type_script = "uid://bsene80k4jq3v"

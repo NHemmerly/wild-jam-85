@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2ksh6yctva"]
+
+[ext_resource type="PackedScene" uid="uid://cddcijwjdl620" path="res://game/ui/hotbar/belt_button.tscn" id="1_43x48"]
+[ext_resource type="Script" uid="uid://d3vrv4hw7uydi" path="res://game/ui/hotbar/hotbar.gd" id="1_jliyl"]
+
+[node name="Hotbar" type="CanvasLayer" node_paths=PackedStringArray("hotbar_container")]
+script = ExtResource("1_jliyl")
+hotbar_container = NodePath("Hotbar/HBoxContainer")
+hotbar_button = ExtResource("1_43x48")
+
+[node name="Hotbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hotbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0

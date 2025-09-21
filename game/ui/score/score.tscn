@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgmhorfx4p70h"]
+[gd_scene load_steps=4 format=3 uid="uid://dgmhorfx4p70h"]
 
 [ext_resource type="Script" uid="uid://doonu7w3tyg4r" path="res://game/ui/score/score.gd" id="1_5jodj"]
+[ext_resource type="Texture2D" uid="uid://b8mdyl7pqwbhr" path="res://assets/png/goo-counter.png" id="2_06qak"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjal3"]
 
 [node name="Score" type="CanvasLayer" node_paths=PackedStringArray("score_label")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 script = ExtResource("1_5jodj")
-score_label = NodePath("Control/MarginContainer/Label")
+score_label = NodePath("Control/HBoxContainer/MarginContainer/Label")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -14,15 +19,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 20.0
+offset_left = 10.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control/MarginContainer"]
+[node name="ImageContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_06qak")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
-text = "0
-"
+text = "1"
+label_settings = SubResource("LabelSettings_bjal3")
 horizontal_alignment = 1
+vertical_alignment = 1

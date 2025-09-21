@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b50mjw4n2c1rs"]
+
+[ext_resource type="PackedScene" uid="uid://bis0pn0lvuov0" path="res://level/decor/trees/tree.tscn" id="1_ypc12"]
+[ext_resource type="Texture2D" uid="uid://cgks4dv6v3ig7" path="res://assets/png/maple.png" id="2_lgd0i"]
+
+[node name="Tree2" instance=ExtResource("1_ypc12")]
+z_as_relative = true
+texture = ExtResource("2_lgd0i")

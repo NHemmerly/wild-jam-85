@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm5vinqg0de28"]
+
+[ext_resource type="Script" uid="uid://cgnaickt1taag" path="res://game/ui/mute/mute.gd" id="1_4bbyl"]
+
+[node name="Mute" type="CanvasLayer"]
+
+[node name="Mute" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 31.0
+grow_horizontal = 0
+script = ExtResource("1_4bbyl")
+
+[node name="Button" type="Button" parent="Mute"]
+layout_mode = 2
+mouse_filter = 1
+text = "Mute"
+
+[connection signal="pressed" from="Mute/Button" to="Mute" method="_on_button_pressed"]
