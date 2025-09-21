@@ -16,7 +16,7 @@ func _ready() -> void:
 	connect("goo_consume", Events._on_goo_consume)
 	
 func increase_points(leaf: Leaf) -> void:
-	var new_points: int = leaf.data.id + 1
+	var new_points: int = leaf.data.score
 	points += new_points
 	grow(new_points)
 	goo_consume.emit(points)

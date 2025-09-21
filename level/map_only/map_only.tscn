@@ -68,6 +68,8 @@ custom_data_layer_0/name = "item_surface"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "buildable"
 custom_data_layer_1/type = 1
+custom_data_layer_2/name = "occupied"
+custom_data_layer_2/type = 1
 sources/2 = SubResource("TileSetAtlasSource_qlind")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ou85"]
@@ -111,7 +113,7 @@ tile_set = SubResource("TileSet_b45g7")
 script = ExtResource("3_b45g7")
 
 [node name="Player" parent="." instance=ExtResource("3_ufh38")]
-position = Vector2(578, 325)
+position = Vector2(586, 329)
 
 [node name="goo" parent="." instance=ExtResource("5_b45g7")]
 z_index = 3

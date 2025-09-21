@@ -11,10 +11,12 @@ rough = true
 radius = 4.12311
 
 [node name="Leaf1" type="RigidBody2D" node_paths=PackedStringArray("sprite", "collisionShape") groups=["leaves"]]
-z_index = 2
+z_index = 4
 physics_material_override = SubResource("PhysicsMaterial_rpy6u")
 gravity_scale = 0.75
 freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 1.0
 script = ExtResource("1_t6wa5")
 data = ExtResource("2_rpy6u")

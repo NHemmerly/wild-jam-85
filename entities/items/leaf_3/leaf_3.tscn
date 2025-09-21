@@ -6,10 +6,15 @@
 [sub_resource type="Resource" id="Resource_v18v7"]
 script = ExtResource("2_dnaeh")
 id = 2
+score = 4
 metadata/_custom_type_script = "uid://cygj7nwknkega"
 
 [node name="Leaf3" instance=ExtResource("1_j4b63")]
 data = SubResource("Resource_v18v7")
 
 [node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(2, 2)

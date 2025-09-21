@@ -13,9 +13,11 @@ atlas = ExtResource("1_m50q0")
 region = Rect2(32, 0, 32, 32)
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_8obdb")
 price = 3
 thumbnail = SubResource("AtlasTexture_d2n0w")
 preview = SubResource("AtlasTexture_jfdkr")
 structure = ExtResource("3_i7n30")
+direction = 0
 metadata/_custom_type_script = "uid://bsene80k4jq3v"
