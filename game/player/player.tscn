@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://clp1ofdixv4m3"]
+[gd_scene load_steps=6 format=3 uid="uid://clp1ofdixv4m3"]
 
 [ext_resource type="Script" uid="uid://dm4h17wurvpq7" path="res://game/player/player.gd" id="1_obar5"]
 [ext_resource type="PackedScene" uid="uid://dkkrj73nvobsy" path="res://game/rake/rake.tscn" id="2_b2mth"]
 [ext_resource type="PackedScene" uid="uid://dgmhorfx4p70h" path="res://game/ui/score/score.tscn" id="3_8soms"]
+[ext_resource type="PackedScene" uid="uid://bm5vinqg0de28" path="res://game/ui/mute/Mute.tscn" id="4_a4w0n"]
+[ext_resource type="PackedScene" uid="uid://cs5lkpx0o327b" path="res://game/ui/tutorial/tutorial.tscn" id="5_5fytw"]
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("rake", "cam", "held_sprite")]
 script = ExtResource("1_obar5")
@@ -25,3 +27,7 @@ position_smoothing_enabled = true
 
 [node name="HeldItem" type="Sprite2D" parent="."]
 z_index = 5
+
+[node name="Mute" parent="." instance=ExtResource("4_a4w0n")]
+
+[node name="Tutorial" parent="." instance=ExtResource("5_5fytw")]

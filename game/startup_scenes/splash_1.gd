@@ -4,6 +4,7 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicPlayer.play()
 	fade_in_out()
 
 func fade_in_out() -> void:

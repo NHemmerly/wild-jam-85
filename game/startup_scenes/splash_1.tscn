@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://barcme78oenow"]
+[gd_scene load_steps=10 format=3 uid="uid://barcme78oenow"]
 
 [ext_resource type="Texture2D" uid="uid://bxoayioybnsvd" path="res://assets/png/GWJ-Full-Logo-noBG-4k.png" id="1_oyd1s"]
 [ext_resource type="Script" uid="uid://5cdlyv4tyjw3" path="res://game/startup_scenes/splash_1.gd" id="2_kariq"]
+[ext_resource type="PackedScene" uid="uid://bm5vinqg0de28" path="res://game/ui/mute/Mute.tscn" id="3_r6cui"]
+[ext_resource type="Texture2D" uid="uid://ca4216n1yei85" path="res://assets/png/Wildcard_1.png" id="4_ct4kl"]
+[ext_resource type="Texture2D" uid="uid://brr7on2evchtl" path="res://assets/png/Wildcard_2.png" id="5_84ofu"]
 
 [sub_resource type="Animation" id="Animation_vkabi"]
 length = 0.001
@@ -73,5 +76,17 @@ animPlayer = NodePath("AnimationPlayer")
 libraries = {
 &"": SubResource("AnimationLibrary_84ofu")
 }
+
+[node name="Mute" parent="." instance=ExtResource("3_r6cui")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(217, 276)
+scale = Vector2(0.182558, 0.182558)
+texture = ExtResource("4_ct4kl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(968, 277)
+scale = Vector2(0.182558, 0.182558)
+texture = ExtResource("5_84ofu")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

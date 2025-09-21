@@ -1,61 +1,80 @@
-[gd_scene load_steps=7 format=3 uid="uid://db46kos83ixhq"]
+[gd_scene load_steps=13 format=3 uid="uid://db46kos83ixhq"]
 
 [ext_resource type="Script" uid="uid://j1w86rjk0gn8" path="res://entities/goo/goo.gd" id="1_ypi1f"]
 [ext_resource type="Texture2D" uid="uid://dytluttwt67us" path="res://assets/png/goo_wad.png" id="2_ypi1f"]
+[ext_resource type="AudioStream" uid="uid://c0wti00lka2lq" path="res://assets/music/goo_eat.mp3" id="3_8hf4u"]
+[ext_resource type="Texture2D" uid="uid://2qs4612rwg5t" path="res://assets/png/goo_wad2.png" id="4_b7q2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hf4u"]
 radius = 128.204
 height = 1126.36
 
-[sub_resource type="Animation" id="Animation_8hf4u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7q2t"]
+atlas = ExtResource("2_ypi1f")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="Animation" id="Animation_ypi1f"]
-resource_name = "eat"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.433333, 0.866667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yxdm"]
+atlas = ExtResource("2_ypi1f")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7q2t"]
-_data = {
-&"RESET": SubResource("Animation_8hf4u"),
-&"eat": SubResource("Animation_ypi1f")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_vflei"]
+atlas = ExtResource("4_b7q2t")
+region = Rect2(0, 0, 32, 32)
 
-[node name="goo" type="Area2D" node_paths=PackedStringArray("sprite", "anim")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4hh"]
+atlas = ExtResource("4_b7q2t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgx5a"]
+atlas = ExtResource("4_b7q2t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s44ey"]
+atlas = ExtResource("4_b7q2t")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5ny5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7q2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yxdm")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vflei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgx5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s44ey")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="goo" type="Area2D" node_paths=PackedStringArray("sprite", "audio")]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ypi1f")
-sprite = NodePath("Sprite2D")
-anim = NodePath("AnimationPlayer")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 4.76837e-07)
-scale = Vector2(3.762, 2.8143)
-texture = ExtResource("2_ypi1f")
-hframes = 2
+sprite = NodePath("AnimatedSprite2D")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 4
@@ -64,9 +83,14 @@ rotation = 4.71239
 scale = Vector2(0.281427, 0.30752)
 shape = SubResource("CapsuleShape2D_8hf4u")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_b7q2t")
-}
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8hf4u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_p5ny5")
+animation = &"idle"
+autoplay = "idle"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

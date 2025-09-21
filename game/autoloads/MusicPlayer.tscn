@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://24eqflkuwlvk"]
+
+[ext_resource type="AudioStream" uid="uid://cxvjebif5raik" path="res://assets/music/wild-jam-85-theme.mp3" id="1_n1h6e"]
+[ext_resource type="Script" uid="uid://dih6y3sfqxtxh" path="res://game/autoloads/music_player.gd" id="2_4t45k"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_n1h6e")
+parameters/looping = true
+script = ExtResource("2_4t45k")

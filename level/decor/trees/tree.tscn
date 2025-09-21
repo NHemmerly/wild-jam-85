@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bis0pn0lvuov0"]
+
+[ext_resource type="Script" uid="uid://djin6gjy1mwli" path="res://level/decor/trees/tree.gd" id="1_eo26w"]
+[ext_resource type="Texture2D" uid="uid://drnytsock8uvd" path="res://assets/png/birch.png" id="1_kd3no"]
+
+[node name="Tree" type="Sprite2D"]
+z_index = 5
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("1_kd3no")
+script = ExtResource("1_eo26w")

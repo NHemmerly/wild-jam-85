@@ -6,6 +6,7 @@ extends RigidBody2D
 @export var collisionShape: CollisionShape2D
 @export var landing_y: float
 @export var hole: TileMapLayer
+@export var audio: AudioStreamPlayer
 
 var combined := false
 
@@ -34,6 +35,9 @@ func is_item_surface() -> bool:
 	if tile_data:
 		return tile_data.get_custom_data("item_surface")
 	return true
+	
+func play_merge_sound() -> void:
+	audio.play()
 
 func merge_leaf(leaf: Leaf) -> void:
 	if combined != true:
@@ -50,6 +54,7 @@ func spawn_merged(leaf: Leaf) -> void:
 		new_leaf.hole = hole
 		new_leaf.state = FallenState.new()
 		new_leaf.state.enter(new_leaf)
+		new_leaf.play_merge_sound()
 		leaf.queue_free()
 		queue_free()
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d21o18xaxtv1i"]
+[gd_scene load_steps=8 format=3 uid="uid://d21o18xaxtv1i"]
 
 [ext_resource type="Texture2D" uid="uid://bguf3vv28wya3" path="res://assets/png/fall-of-goo-1.png" id="1_7fh2u"]
 [ext_resource type="Script" uid="uid://cvw7733p64p3i" path="res://game/startup_scenes/main_menu.gd" id="1_k65gq"]
 [ext_resource type="PackedScene" uid="uid://c78tapil644l2" path="res://game/ui/main_menu/main_buttons.tscn" id="3_4n7p1"]
+[ext_resource type="PackedScene" uid="uid://bm5vinqg0de28" path="res://game/ui/mute/Mute.tscn" id="4_njxd4"]
 
 [sub_resource type="Animation" id="Animation_4n7p1"]
 length = 0.001
@@ -60,3 +61,5 @@ libraries = {
 }
 
 [node name="MainButtons" parent="." instance=ExtResource("3_4n7p1")]
+
+[node name="Mute" parent="." instance=ExtResource("4_njxd4")]

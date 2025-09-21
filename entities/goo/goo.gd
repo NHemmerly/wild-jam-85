@@ -1,8 +1,8 @@
 class_name Goo
 extends Area2D
 
-@export var sprite: Sprite2D
-@export var anim: AnimationPlayer
+@export var sprite: AnimatedSprite2D
+@export var audio: AudioStreamPlayer2D
 
 # Basically amount of slime points gained
 var points: int
@@ -24,9 +24,15 @@ func increase_points(leaf: Leaf) -> void:
 func grow(amount: int) -> void:
 	total_scale += float(amount/GROWTH_RATE)
 	scale = Vector2(total_scale, total_scale)
-	anim.play("eat")
+	sprite.play("eat")
+	audio.play()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("leaves"):
 		body.queue_free()
 		increase_points(body)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "eat":
+		sprite.play("idle")
