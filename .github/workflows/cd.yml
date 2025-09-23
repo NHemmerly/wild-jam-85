@@ -2,7 +2,7 @@ name: Godot build and deploy
 run-name: ${{ github.actor }} is deploying godot games!
 on:
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 env:
   AWS_REGION: us-east-1
