@@ -33,6 +33,10 @@ jobs:
         wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/${{ env.GODOT_BIN }}.zip
         unzip ${{ env.GODOT_BIN }}.zip
 
+    - name: Move export template
+      run: |
+        cp source/web_nothreads_release.zip /home/runner/.local/share/godot/export_templates/4.4.1.stable/web_nothreads_release.zip
+
     - name: Export game
       run: |
         ./${{ env.GODOT_BIN }} --path source --export-release Web exports/index.html --headless --import
