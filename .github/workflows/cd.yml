@@ -27,11 +27,12 @@ jobs:
 
     - name: Install Godot
       run: |
-        sudo snap install godot-4
+        wget https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+        unzip Godot_v4.5-stable_linux.x86_64.zip
 
     - name: Export game
       run: |
-        godot-4 --path . --export-release Web exports/index.html --headless
+        ./Godot_v4.5-stable_linux.x86_64 --path . --export-release Web exports/index.html --headless
 
     - name: Publish to S3
       run: aws s3 sync ./exports s3://{{ env.S3_BUCKET }}/ --delete
