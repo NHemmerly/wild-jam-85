@@ -41,7 +41,7 @@ jobs:
     - name: Export game
       run: |
         mkdir exports
-        ./${{ env.GODOT_BIN }} --path source --export-release Web ./exports/index.html --headless --import
+        ./${{ env.GODOT_BIN }} --path source --export-release Web ../exports/index.html --headless --import
 
     - name: Publish to S3
       run: aws s3 sync ./exports s3://${{ env.S3_BUCKET }}/ --delete
