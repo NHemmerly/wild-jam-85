@@ -1,7 +1,7 @@
 name: Godot build and deploy
 run-name: ${{ github.actor }} is deploying godot games!
 on:
-  push:
+  pull_request:
     branches: [ $default-branch ]
 
 env:
