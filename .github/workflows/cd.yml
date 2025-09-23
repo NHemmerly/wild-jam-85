@@ -31,7 +31,7 @@ jobs:
 
     - name: Export game
       run: |
-        godot-4 --path . --export-release Web exports/index.html
+        godot-4 --path . --export-release Web exports/index.html --headless
 
     - name: Publish to S3
       run: aws s3 sync ./exports s3://{{ env.S3_BUCKET }}/ --delete
