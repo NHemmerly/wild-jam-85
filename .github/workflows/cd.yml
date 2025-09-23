@@ -7,6 +7,7 @@ on:
 env:
   AWS_REGION: us-east-1
   S3_BUCKET: playtest.kneel-mine.net
+  GODOT_BIN: Godot_v4.4.1-stable_linux.x86_64
 
 jobs:
   deploy:
@@ -29,12 +30,12 @@ jobs:
 
     - name: Install Godot
       run: |
-        wget https://github.com/godotengine/godot/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
-        unzip Godot_v4.5-stable_linux.x86_64.zip
+        wget https://github.com/godotengine/godot-builds/releases/download/4.4.1-stable/{{ env.GODOT_BIN }}.zip
+        unzip {{ env.GODOT_BIN }}.x86_64.zip
 
     - name: Export game
       run: |
-        ./Godot_v4.5-stable_linux.x86_64 --path source --export-release Web exports/index.html --headless --import
+        ./{{ env.GODOT_BIN }}.x86_64 --path source --export-release Web exports/index.html --headless --import
 
     - name: Publish to S3
       run: aws s3 sync ./exports s3://{{ env.S3_BUCKET }}/ --delete
