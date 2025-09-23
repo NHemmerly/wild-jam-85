@@ -35,7 +35,8 @@ jobs:
 
     - name: Move export template
       run: |
-        cp source/web_nothreads_release.zip /home/runner/.local/share/godot/export_templates/4.4.1.stable
+        mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable/
+        cp source/web_nothreads_release.zip /home/runner/.local/share/godot/export_templates/4.4.1.stable/web_nothreads_release.zip
 
     - name: Export game
       run: |
