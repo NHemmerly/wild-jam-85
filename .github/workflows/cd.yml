@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        path: source
 
     - name: Config AWS Creds
       uses: aws-actions/configure-aws-credentials@v1
@@ -32,7 +34,7 @@ jobs:
 
     - name: Export game
       run: |
-        ./Godot_v4.5-stable_linux.x86_64 --path . --export-release Web exports/index.html --headless
+        ./Godot_v4.5-stable_linux.x86_64 --path source --export-release Web exports/index.html --headless
 
     - name: Publish to S3
       run: aws s3 sync ./exports s3://{{ env.S3_BUCKET }}/ --delete
